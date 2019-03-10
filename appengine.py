@@ -14,7 +14,8 @@ session = DBSession()
 @app.route('/')
 @app.route('/restaurants/')
 def homePage():
-    return 'Welcome to Brownwood Restaurants'
+    restaurants = session.query(Restaurant).all()
+    return render_template('index.html', restaurants = restaurants)
 
 @app.route('/restaurants/<int:rest_id>/')
 def showRestaurant(rest_id):
@@ -28,6 +29,14 @@ def showRestaurant(rest_id):
 @app.route('/restaurants/new', methods=['GET', 'POST'])
 def newRestaurant():
     return 'New Restaurant Page'
+
+@app.route('/restaurants/<int:rest_id>/edit/', methods=['GET', 'POST'])
+def editRestaurant(rest_id):
+    return 'Edit Restaurant'
+
+@app.route('/restaurants/<int:rest_id>/delete/', methods=['GET', 'POST'])
+def deleteRestaurant(rest_id):
+    return 'Delete Restaurant'
 
 @app.route('/restaurants/<int:restaurant_id>/new/', methods=['GET', 'POST'])
 def newMenuItem(restaurant_id):
@@ -59,7 +68,6 @@ else:
     return render_template(
         'editmenuitem.html', restaurant_id=restaurant_id, menu_id=menu_id, item=editedItem) """
 
-
 @app.route('/restaurants/<int:restaurant_id>/<int:menu_id>/delete/', methods=['GET', 'POST'])
 def deleteMenuItem(restaurant_id, menu_id):
     return 'Delete Menu Item'
@@ -72,6 +80,14 @@ def deleteMenuItem(restaurant_id, menu_id):
     else:
         return render_template(
             'deletemenuitem.html', item=itemToDelete) """
+
+@app.route('/about')
+def about():
+    return 'About Us Coming Soon...'
+
+@app.route('/contact')
+def contact():
+    return 'Contact Us Coming Soon...'
 
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
