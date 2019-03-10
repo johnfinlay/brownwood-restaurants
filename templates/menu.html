@@ -2,12 +2,12 @@
 
 {% block header %}
     <h1>{% block title %}{{ rest_name}} Menu{% endblock %}</h1>
-    <div><a href="{{ url_for('newMenuItem', rest_id = rest_id) }}">Add Menu Item</a></div>
+    <div><a class="btn btn-lg btn-primary" href="{{ url_for('newMenuItem', rest_id = rest_id) }}" role="button">Add Menu Item &raquo;</a></div>
 {% endblock %}
 
 {% block content %}
     {% for i in items %}
-        <div>
+        <div class="jumbotron">
             <h4>{{ i.name }}</h4>
             {{ i.description }}</br>
             {% if i.course %}
@@ -16,8 +16,10 @@
             {% if i.price %}
                 {{ i.price }}</br>
             {% endif %}
-            <div><a href="{{ url_for('editMenuItem', rest_id = rest_id, menu_id = i.id) }}">Edit</a></div>
-            <div><a href="{{ url_for('deleteMenuItem', rest_id = rest_id, menu_id = i.id) }}">Delete</a></div>
+            <div>
+                <a class="btn btn-sm btn-secondary" href="{{ url_for('editMenuItem', rest_id = rest_id, menu_id = i.id) }}" role="button">Edit</a>
+                <a class="btn btn-sm btn-secondary" href="{{ url_for('deleteMenuItem', rest_id = rest_id, menu_id = i.id) }}" role="button">Delete</a>
+            </div>
         </div>
     {% endfor %}
 {% endblock %}

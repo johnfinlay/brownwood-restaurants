@@ -2,12 +2,12 @@
 
 {% block header %}
     <h1>{% block title %}Restaurant Listing{% endblock %}</h1>
-    <div><a href="{{ url_for('newRestaurant') }}">Add Restaurant</a></div>
+    <div><a class="btn btn-lg btn-primary" href="{{ url_for('newRestaurant') }}" role="button">Add Restaurant &raquo;</a></div>
 {% endblock %}
 
 {% block content %}
     {% for r in restaurants %}
-        <div>
+        <div class="jumbotron">
             <h4>{{ r.name }}</h4>
             {{ r.address }}</br>
             {% if r.phone %}
@@ -16,9 +16,12 @@
             {% if r.website %}
                 {{ r.website }}</br>
             {% endif %}
-            <div><a href="{{ url_for('showMenu', rest_id = r.id) }}">View Menu</a></div>
-            <div><a href="{{ url_for('editRestaurant', rest_id = r.id) }}">Edit</a></div>
-            <div><a href="{{ url_for('deleteRestaurant', rest_id = r.id) }}">Delete</a></div>
+            <div><a class="btn btn-md btn-secondary" href="{{ url_for('showMenu', rest_id = r.id) }}" role="button">View Menu &raquo;</a></div>
+            </br>
+            <div>
+                <a class="btn btn-sm btn-secondary" href="{{ url_for('editRestaurant', rest_id = r.id) }}" role="button">Edit</a>
+                <a class="btn btn-sm btn-secondary" href="{{ url_for('deleteRestaurant', rest_id = r.id) }}" role="button">Delete</a>
+            </div>
         </div>
     {% endfor %}
 {% endblock %}
