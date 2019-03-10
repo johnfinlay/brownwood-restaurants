@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Add Menu Item{% endblock %}</h1>
+    <h2>{{ rest_name }}</h2>
+{% endblock %}
+
+{% block content %}
+    <form action="#" method = 'POST'>
+        Name: <input type='text' size='30' name='name'></br>
+        Description: <input type='text' size='30' name='description'></br>
+        Price: <input type='text' size='30' name='price'></br>
+        Course: <input type='text' size='30' name='course'></br>
+        <input type='submit' value='Create'>
+    </form>
+{% endblock %}
