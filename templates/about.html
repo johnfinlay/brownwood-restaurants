@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}About Brownwood Restaurants{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <div>
+        <p>Brownwood Restaurants is a local listing of restaurants in the Brownwood, Texas area.</p>
+        <p>Feel free to browse the menu listings of our local eateries, and <a href="{{ url_for('contact') }}">contact us</a> if you have any questions or comments!</p>
+    </div>
+{% endblock %}

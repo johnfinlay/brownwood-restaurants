@@ -62,11 +62,14 @@ def deleteMenuItem(rest_id, menu_id):
 
 @app.route('/about')
 def about():
-    return 'About Us Coming Soon...'
+    return render_template('about.html')
 
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    return 'Contact Us Coming Soon...'
+    if request.method == 'POST':
+        return redirect(url_for('homePage'))
+    else:
+        return render_template('contact.html')
 
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
