@@ -6,8 +6,8 @@ from database_setup import Base, Restaurant, MenuItem
 app = Flask(__name__)
 
 #Fake Restaurants
-restaurant = {'name': 'The CRUDdy Crab', 'id': '1'}
-restaurants = [{'name': 'The CRUDdy Crab', 'id': '1'}, {'name':'Blue Burgers', 'id':'2'},{'name':'Taco Hut', 'id':'3'}]
+restaurant = {'name': 'The CRUDdy Crab', 'id': '1', 'address': '123 Elm', 'phone': '867-5309', 'website': 'google.com'}
+restaurants = [{'name': 'The CRUDdy Crab', 'id': '1', 'address': '123 Elm', 'phone': '867-5309', 'website': 'google.com'}, {'name':'Blue Burgers', 'id':'2'},{'name':'Taco Hut', 'id':'3', 'address': '123 Elm', 'phone': '867-5309', 'website': 'google.com'}]
 
 #Fake Menu Items
 items = [ {'name':'Cheese Pizza', 'description':'made with fresh cheese', 'price':'$5.99','course' :'Entree', 'id':'1'}, {'name':'Chocolate Cake','description':'made with Dutch Chocolate', 'price':'$3.99', 'course':'Dessert','id':'2'},{'name':'Caesar Salad', 'description':'with fresh organic vegetables','price':'$5.99', 'course':'Entree','id':'3'},{'name':'Iced Tea', 'description':'with lemon','price':'$.99', 'course':'Beverage','id':'4'},{'name':'Spinach Dip', 'description':'creamy dip with fresh spinach','price':'$1.99', 'course':'Appetizer','id':'5'} ]
@@ -32,22 +32,28 @@ def newRestaurant():
 
 @app.route('/restaurants/<int:rest_id>/edit/', methods=['GET', 'POST'])
 def editRestaurant(rest_id):
-    return 'Edit Restaurant'
+    if request.method == 'POST':
+        return redirect(url_for('homePage'))
+    else:
+        return render_template('editrestaurant.html', rest_name = restaurant['name'],
+            rest_address = restaurant['address'],
+            rest_phone = restaurant['phone'],
+            rest_website = restaurant['website'])
 
 @app.route('/restaurants/<int:rest_id>/delete/', methods=['GET', 'POST'])
 def deleteRestaurant(rest_id):
     return 'Delete Restaurant'
 
-@app.route('/restaurants/<int:restaurant_id>/new/', methods=['GET', 'POST'])
-def newMenuItem(restaurant_id):
+@app.route('/restaurants/<int:rest_id>/new/', methods=['GET', 'POST'])
+def newMenuItem(rest_id):
      return 'New Menu Item'
 
-@app.route('/restaurants/<int:restaurant_id>/<int:menu_id>/edit/', methods=['GET', 'POST'])
-def editMenuItem(restaurant_id, menu_id):
+@app.route('/restaurants/<int:rest_id>/<int:menu_id>/edit/', methods=['GET', 'POST'])
+def editMenuItem(rest_id, menu_id):
     return 'Edit Menu Item'
 
-@app.route('/restaurants/<int:restaurant_id>/<int:menu_id>/delete/', methods=['GET', 'POST'])
-def deleteMenuItem(restaurant_id, menu_id):
+@app.route('/restaurants/<int:rest_id>/<int:menu_id>/delete/', methods=['GET', 'POST'])
+def deleteMenuItem(rest_id, menu_id):
     return 'Delete Menu Item'
 
 @app.route('/about')

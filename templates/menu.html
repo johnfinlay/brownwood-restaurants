@@ -2,23 +2,22 @@
 
 {% block header %}
     <h1>{% block title %}{{ rest_name}} Menu{% endblock %}</h1>
-    <div><a href="{{ url_for('newRestaurant') }}">Add Restaurant</a></div>
+    <div><a href="{{ url_for('newMenuItem', rest_id = rest_id) }}">Add Menu Item</a></div>
 {% endblock %}
 
 {% block content %}
-    {% for r in restaurants %}
+    {% for i in items %}
         <div>
-            <h4>{{ r.name }}</h4>
-            {{ r.address }}</br>
-            {% if r.phone %}
-                {{ r.phone }}</br>
+            <h4>{{ i.name }}</h4>
+            {{ i.description }}</br>
+            {% if i.course %}
+                {{ i.course }}</br>
             {% endif %}
-            {% if r.website %}
-                {{ r.website }}</br>
+            {% if i.price %}
+                {{ i.price }}</br>
             {% endif %}
-            <div><a href="{{ url_for('showMenu', rest_id = r.id) }}">View Menu</a></div>
-            <div><a href="{{ url_for('editRestaurant', rest_id = r.id) }}"></a>Edit</div>
-            <div><a href="{{ url_for('deleteRestaurant', rest_id = r.id) }}"></a>Delete</div>
+            <div><a href="{{ url_for('editMenuItem', rest_id = rest_id, menu_id = i.id) }}">Edit</a></div>
+            <div><a href="{{ url_for('deleteMenuItem', rest_id = rest_id, menu_id = i.id) }}">Delete</a></div>
         </div>
     {% endfor %}
 {% endblock %}

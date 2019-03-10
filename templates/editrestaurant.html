@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Edit {{ rest_name }}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <form action="#" method = 'POST'>
+        Name: <input type='text' size='30' name='name' value="{{ rest_name }}"></br>
+        Address: <input type='text' size='30' name='address' value="{{ rest_address }}"></br>
+        Phone: <input type='text' size='30' name='phone' value="{{ rest_phone }}"></br>
+        Website: <input type='text' size='30' name='website' value="{{ rest_website }}"></br>
+        <input type='submit' value='Update'>
+    </form>
+{% endblock %}
