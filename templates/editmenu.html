@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Edit {{ menu_name }}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <form action="#" method = 'POST'>
+        Name: <input type='text' size='30' name='name' value="{{ menu_name }}"></br>
+        Description: <input type='text' size='30' name='description' value="{{ menu_description }}"></br>
+        Price: <input type='text' size='30' name='price' value="{{ menu_price }}"></br>
+        Course: <input type='text' size='30' name='course' value="{{ menu_course }}"></br>
+        <input type='submit' value='Update'>
+    </form>
+{% endblock %}
