@@ -18,7 +18,7 @@ def homePage():
     return render_template('index.html', restaurants = restaurants)
 
 @app.route('/restaurants/<int:rest_id>/')
-def showRestaurant(rest_id):
+def showMenu(rest_id):
     return 'Restaurant Page will display menu items.'
 """ def restaurantMenu(restaurant_id):
     restaurant = session.query(Restaurant).filter_by(id=restaurant_id).one()
@@ -28,7 +28,10 @@ def showRestaurant(rest_id):
 
 @app.route('/restaurants/new', methods=['GET', 'POST'])
 def newRestaurant():
-    return 'New Restaurant Page'
+    if request.method == 'POST':
+        return redirect(url_for('homePage'))
+    else:
+        return render_template('newrestaurant.html')
 
 @app.route('/restaurants/<int:rest_id>/edit/', methods=['GET', 'POST'])
 def editRestaurant(rest_id):

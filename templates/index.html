@@ -16,7 +16,7 @@
             {% if r.website %}
                 {{ r.website }}</br>
             {% endif %}
-            <div><a href="{{ url_for('showRestaurant', rest_id = r.id) }}">View Menu</a></div>
+            <div><a href="{{ url_for('showMenu', rest_id = r.id) }}">View Menu</a></div>
             <div><a href="{{ url_for('editRestaurant', rest_id = r.id) }}"></a>Edit</div>
             <div><a href="{{ url_for('deleteRestaurant', rest_id = r.id) }}"></a>Delete</div>
         </div>
