@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-    <form action="#" method = 'POST'>
+    <form action="{{ url_for('newMenuItem', rest_id = rest_id) }}" method = 'POST'>
         Name: <input type='text' size='30' name='name'></br>
         Description: <input type='text' size='30' name='description'></br>
         Price: <input type='text' size='30' name='price'></br>

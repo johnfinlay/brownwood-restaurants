@@ -16,6 +16,7 @@ class Restaurant(Base):
     address = Column(String(250))
     phone = Column(String(12))
     website = Column(String(250))
+    
     @property
     def serialize(self):
         return {
@@ -48,7 +49,7 @@ class MenuItem(Base):
             'course'        : self.course,
         }
 
-class Messages(Base):
+class Message(Base):
     __tablename__ = 'messages'
 
     name = Column(String(80), nullable=False)
