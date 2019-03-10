@@ -48,6 +48,16 @@ class MenuItem(Base):
             'course'        : self.course,
         }
 
+class Messages(Base):
+    __tablename__ = 'messages'
+
+    name = Column(String(80), nullable=False)
+    id = Column(Integer, primary_key=True)
+    email = Column(String(250))
+    subject = Column(String(250))
+    message = Column(String(1000))
+
+
 engine = create_engine('sqlite:///restaurantmenu.db')
 
 
