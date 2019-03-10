@@ -42,7 +42,7 @@ def editRestaurant(rest_id):
 
 @app.route('/restaurants/<int:rest_id>/delete/', methods=['GET', 'POST'])
 def deleteRestaurant(rest_id):
-    return 'Delete Restaurant'
+    return render_template('deleterestaurant.html', rest_name = restaurant['name'])
 
 @app.route('/restaurants/<int:rest_id>/new/', methods=['GET', 'POST'])
 def newMenuItem(rest_id):
