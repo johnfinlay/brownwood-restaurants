@@ -5,11 +5,25 @@
 {% endblock %}
 
 {% block content %}
-    <form action="{{ url_for('editMenuItem', rest_id = rest_id, menu_id = menu_id) }}" method = 'POST'>
-        Name: <input type='text' size='30' name='name' value="{{ menu_name }}"></br>
-        Description: <input type='text' size='30' name='description' value="{{ menu_description }}"></br>
-        Price: <input type='text' size='30' name='price' value="{{ menu_price }}"></br>
-        Course: <input type='text' size='30' name='course' value="{{ menu_course }}"></br>
-        <input type='submit' value='Update'>
-    </form>
+    <div class="jumbotron">
+        <div class="container contact-form">
+            <form action="{{ url_for('editMenuItem', rest_id = rest_id, menu_id = menu_id) }}" method = 'POST'>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type='text' size='30' id="name" name='name' class="form-control" value="{{ menu_name }}">
+                            <label for="description">Description</label>
+                            <textarea type='text' size='30' id="description" name='description' class="form-control">{{ menu_description }}</textarea>
+                            <label for="price">Price</label>
+                            <input type='text' size='30' name='price' class="form-control" value="{{ menu_price }}">
+                            <label for="course">Course</label>
+                            <input type='text' size='30' name='course' class="form-control" value="{{ menu_course }}">
+                            <input type='submit' class="btn btn-lg btn-primary" value='Update'>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 {% endblock %}

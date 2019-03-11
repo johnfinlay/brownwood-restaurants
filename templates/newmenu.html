@@ -6,11 +6,25 @@
 {% endblock %}
 
 {% block content %}
-    <form action="{{ url_for('newMenuItem', rest_id = rest_id) }}" method = 'POST'>
-        Name: <input type='text' size='30' name='name'></br>
-        Description: <input type='text' size='30' name='description'></br>
-        Price: <input type='text' size='30' name='price'></br>
-        Course: <input type='text' size='30' name='course'></br>
-        <input type='submit' value='Create'>
-    </form>
+    <div class="jumbotron">
+        <div class="container contact-form">
+            <form action="{{ url_for('newMenuItem', rest_id = rest_id) }}" method = 'POST'>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type='text' size='30' id="name" name='name' class="form-control">
+                            <label for="description">Description</label>
+                            <textarea type='text' size='30' id="description" name='description' class="form-control"></textarea>
+                            <label for="price">Price</label>
+                            <input type='text' size='30' name='price' class="form-control">
+                            <label for="course">Course</label>
+                            <input type='text' size='30' name='course' class="form-control">
+                            <input type='submit' class="btn btn-lg btn-primary" value='Create'>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 {% endblock %}

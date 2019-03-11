@@ -66,7 +66,7 @@ def deleteRestaurant(rest_id):
         flash('Restaurant Sucdessfully Deleted')
         return redirect(url_for('homePage'))
     else:
-        return render_template('deleterestaurant.html', rst_id = rest_id, rest_name = restaurantToDelete.name)
+        return render_template('deleterestaurant.html', rest_id = rest_id, rest_name = restaurantToDelete.name)
 
 @app.route('/restaurants/<int:rest_id>/new/', methods=['GET', 'POST'])
 def newMenuItem(rest_id):

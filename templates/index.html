@@ -14,7 +14,7 @@
                 {{ r.phone }}</br>
             {% endif %}
             {% if r.website %}
-                {{ r.website }}</br>
+                <a href="http://{{ r.website }}" target="_blank">Website</a></br>
             {% endif %}
             <div><a class="btn btn-md btn-secondary" href="{{ url_for('showMenu', rest_id = r.id) }}" role="button">View Menu &raquo;</a></div>
             </br>

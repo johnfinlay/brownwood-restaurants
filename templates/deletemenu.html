@@ -5,7 +5,10 @@
 {% endblock %}
 
 {% block content %}
-    <form action="{{ url_for('deleteMenuItem', rest_id = rest_id, menu_id = menu_id) }}" method = 'POST'>
-        <input type='submit' value='Delete'>
-    </form>
+        <div class="container contact-form">
+            <form action="{{ url_for('deleteMenuItem', rest_id = rest_id, menu_id = menu_id) }}" method = 'POST'>
+                <input type='submit' class="btn btn-lg btn-primary" value='Delete'>
+            </form>
+        </div>
+  
 {% endblock %}

@@ -5,11 +5,25 @@
 {% endblock %}
 
 {% block content %}
-    <form action="{{ url_for('editRestaurant', rest_id = rest_id) }}" method = 'POST'>
-        Name: <input type='text' size='30' name='name' value="{{ rest_name }}"></br>
-        Address: <input type='text' size='30' name='address' value="{{ rest_address }}"></br>
-        Phone: <input type='text' size='30' name='phone' value="{{ rest_phone }}"></br>
-        Website: <input type='text' size='30' name='website' value="{{ rest_website }}"></br>
-        <input type='submit' value='Update'>
-    </form>
+    <div class="jumbotron">
+        <div class="container contact-form">
+            <form action="{{ url_for('editRestaurant', rest_id = rest_id) }}" method = 'POST'>
+               <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type='text' size='30' id="name" name='name' class="form-control" value="{{ rest_name }}">
+                            <label for="description">Address</label>
+                            <input type='text' size='30' id="address" name='address' class="form-control" value="{{ rest_address }}">
+                            <label for="price">Phone</label>
+                            <input type='text' size='30' name='phone' class="form-control" value="{{ rest_phone }}">
+                            <label for="course">Website</label>
+                            <input type='text' size='30' name='website' class="form-control" value="{{ rest_website }}">
+                            <input type='submit' class="btn btn-lg btn-primary" value='Update'>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 {% endblock %}
